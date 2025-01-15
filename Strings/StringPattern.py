@@ -21,4 +21,4 @@ def trianglePattern(level,char,desc=True,space=" ",spaceBefore=0):
             countSpace-=1
     return result
 
-print(trianglePattern(5,'*',False," ",10))
+# print(trianglePattern(5,'*',False," ",10))
