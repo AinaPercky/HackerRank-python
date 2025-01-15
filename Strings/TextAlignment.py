@@ -1,23 +1,11 @@
+
+
 from StringPattern import trianglePattern
 n = int(input())
 volume = n * n
 string = 'H'
 doubleString = string + string
 fiveString = string * 5
-5
-
-def numberString(argstring, number):
-    i = 0
-    while i < (number - 1):
-        argstring += argstring[0]
-        i += 1
-    return argstring
-
-def mutate_string(string, position, character):
-    string = list(string)
-    string[position] = character
-    string = ''.join(string)
-    return string
 
 for i in range(0, n * 2, 2):
     print(string.center(9, ' '))
