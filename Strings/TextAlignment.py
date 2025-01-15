@@ -1,27 +1,28 @@
 from StringPattern import trianglePattern
-n = int(input())
-volume = n * n
-string = 'H'
-repeat_string = string * n
 
-print(trianglePattern(n,string,False))
+def main():
+    n = int(input())
+    string = 'H'
+    repeat_string = string * n
+    center_width = n * 2 - 1
+    space_width = n * 2 + 1
+    pattern_width = n * 5
+    half_n = (n + 1) // 2
 
-for i in range(n + 1):
-    print(repeat_string.center(n*2-1, ' '), end="")
-    print(' '*(n*2+1), end="")
-    print(repeat_string.center(n*2-1, ' '))
+    print(trianglePattern(n, string, False))
 
-for i in range((n + 1) // 2):
-    print(' '*(((n*2-1)-n)//2), end="")
-    print(string.center(n*5, string))
+    for i in range(n + 1):
+        centered_string = repeat_string.center(center_width, ' ')
+        print(f"{centered_string}{' ' * space_width}{centered_string}")
 
-for i in range(n + 1):
-    print(repeat_string.center(n*2-1, ' '), end="")
-    print(' '*(n*2+1), end="")
-    print(repeat_string.center(n*2-1, ' '))
+    for i in range(half_n):
+        print(' ' * ((center_width - n) // 2) + string.center(pattern_width, string))
 
-print(trianglePattern(n,string,True," ",n*4))
+    for i in range(n + 1):
+        centered_string = repeat_string.center(center_width, ' ')
+        print(f"{centered_string}{' ' * space_width}{centered_string}")
 
+    print(trianglePattern(n, string, True, " ", n * 4))
 
-
-
+if __name__ == "__main__":
+    main()
