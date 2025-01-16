@@ -1,20 +1,11 @@
 def print_formatted(number):
-    lines=[]
-    space=" "
-    for i in range (1,number+1):
-        string=''
-        for j in range (1,5):
-            if (j==1):
-                print((str(i)),end=' ')
-            elif(j==2):
-                print(str(oct(i)).replace('0o',''),end=' ')
-            elif(j==3):
-                print(str(hex(i)).replace('0x',''),end=' ')
-            else:
-                print(str(bin(i)).replace('0b',''),end=' ')
-        lines.append(string)
-        print(' ')
-    return '\n'.join(lines)
+    width = len(bin(number).replace('0b', ''))
+    for i in range(1, number + 1):
+        decimal = str(i).rjust(width)
+        octal = str(oct(i)).replace('0o', '').rjust(width)
+        hexa = str(hex(i)).replace('0x', '').upper().rjust(width)
+        binary = str(bin(i)).replace('0b', '').rjust(width)
+        print(f"{decimal} {octal} {hexa} {binary}")
 
 if __name__ == '__main__':
     n = int(input())
