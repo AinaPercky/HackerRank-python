@@ -11,5 +11,4 @@ for i in range (command_number):
         s.discard(int(command[1]))
     else:
         pass
-for s_item in s:
-    print(s_item)
+print(sum(s))
